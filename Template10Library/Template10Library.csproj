@@ -150,9 +150,10 @@
     <Compile Include="Services\NavigationService\NavigatedEventArgs.cs" />
     <Compile Include="Services\NavigationService\NavigatingEventArgs.cs" />
     <Compile Include="Services\NavigationService\NavigationService.cs" />
-    <Compile Include="Services\SettingsService\Settings.cs" />
     <Compile Include="Services\SettingsService\PropertyMapping.cs" />
     <Compile Include="Services\SettingsService\PropertyStore.cs" />
+    <Compile Include="Services\SettingsService\Settings.cs" />
+    <Compile Include="Services\SettingsService\SettingsHelper.cs" />
     <Compile Include="Utils\TypeUtil.cs" />
     <Content Include="Properties\Template10Library.rd.xml" />
   </ItemGroup>
@@ -173,6 +174,9 @@
   <ItemGroup>
     <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
       <Name>Behaviors SDK %28XAML%29</Name>
+    </SDKReference>
+    <SDKReference Include="WindowsMobile, Version=10.0.10240.0">
+      <Name>Windows Mobile Extensions for the UWP</Name>
     </SDKReference>
   </ItemGroup>
   <ItemGroup />
@@ -195,7 +199,7 @@ echo 'manually cleaned during pre-build event command line'
     <!--<Copy SkipUnchangedFiles="true" SourceFiles="bin\$(Configuration)\Template10Library.xml" DestinationFiles="bin\$(Configuration)\nupkg\lib\dotnet\Template10Library.xml" />-->
     <!--<Copy SkipUnchangedFiles="true" SourceFiles="bin\$(Configuration)\Template10Library.pdb" DestinationFiles="bin\$(Configuration)\nupkg\lib\dotnet\Template10Library.pdb" />-->
     <Copy SkipUnchangedFiles="true" SourceFiles="Template10Library.nuspec" DestinationFiles="bin\$(Configuration)\nupkg\Template10Library.nuspec" />
-    <Exec Command="NuGet.exe pack Template10Library.nuspec -OutputDirectory .. -NonInteractive -Properties Configuration=Release" WorkingDirectory="bin\$(Configuration)\nupkg" Outputs="bin\$(Configuration)\*.nupkg" />
+    <Exec Command="..\..\..\NuGet.exe pack Template10Library.nuspec -OutputDirectory .. -NonInteractive -Properties Configuration=Release" WorkingDirectory="bin\$(Configuration)\nupkg" Outputs="bin\$(Configuration)\*.nupkg" />
     <!--<Copy SkipUnchangedFiles="true" SourceFiles="bin\$(Configuration)\*.nupkg" DestinationFolder="c:\nuget-local\" />-->
     <Exec Command="xcopy.exe bin\$(Configuration)\*.nupkg c:\nuget-local\ /m/y " />
   </Target>
