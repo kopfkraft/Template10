@@ -188,7 +188,11 @@ GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
 
+<<<<<<< HEAD
 # pfx and project.lock
 *.pfx
 project.lock.json
 /.vs
+=======
+*.lock.json
+>>>>>>> 974d75b5cde694da1d1602941b4c8d9ff4dd3a8f
